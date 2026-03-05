@@ -1,0 +1,56 @@
+body(
+font-family: Arial, sans-serif;
+margin:0;
+background:#0f1117;
+color:white;
+}
+
+header{
+background:#181c25;
+padding:20px:
+text-align:center;
+}
+
+nav a{
+margin:10px;
+text-decoration:none;
+color:#9ab4ff;
+font-weight:bold;
+}
+
+nav a:hover{
+color:white;
+}
+
+.hero{
+text-align:center;
+padding:40px;
+font-size:24px;
+}
+
+.card{
+background:#1c2130;
+margin:30px;
+padding:25px;
+border-radius:10px;
+}
+
+.discord-btn{
+display:inline-block;
+padding:12px 20px;
+background:#5865F2;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin-top:15px;
+}
+
+.discord-btn:hover{
+background:$4752c4;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#aaa;
+}

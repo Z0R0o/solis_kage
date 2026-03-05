@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Solis Kage Progression</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Character Progression</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="updates.html">Updates</a>
+<a href="progression.html">Progression</a>
+<a href="showcase.html">Showcase</a>
+<a href="wips.html">WIPs</a>
+<a href="commissions.html">Commissions</a>
+<a href="owner.html">Owner</a>
+</nav>
+
+</header>
+
+
+<div class="container">
+
+<div class="card">
+
+<h2>Design Evolution</h2>
+
+<p class="sectionText">
+Development stages of Solis Kage from early sketch to final character sheet.
+</p>
+
+<div class="gallery">
+
+<div class="galleryItem">
+<img src="images/prog1.png" onclick="openImage(this)">
+<p class="caption">DAY 1 — Face Design Sketch</p>
+</div>
+
+<div class="galleryItem">
+<img src="images/prog2.png" onclick="openImage(this)">
+<p class="caption">DAY 2 — Costume Design</p>
+</div>
+
+<div class="galleryItem">
+<img src="images/prog3.png" onclick="openImage(this)">
+<p class="caption">DAY 3 — Eyes Close-Up</p>
+</div>
+
+<div class="galleryItem">
+<img src="images/prog4.png" onclick="openImage(this)">
+<p class="caption">DAY 3 — Face Close-Up</p>
+</div>
+
+<div class="galleryItem">
+<img src="images/prog5.png" onclick="openImage(this)">
+<p class="caption">DAY 4 — Final Linework</p>
+</div>
+
+<div class="galleryItem">
+<img src="images/prog6.png" onclick="openImage(this)">
+<p class="caption">DAY 4 — Character Sheet</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="imageViewer" onclick="closeImage()">
+<img id="viewerImg">
+</div>
+
+
+<footer>
+<p>© Solis Kage Character Archive</p>
+</footer>
+
+
+<script>
+
+function openImage(img){
+document.getElementById("imageViewer").style.display="flex"
+document.getElementById("viewerImg").src=img.src
+}
+
+function closeImage(){
+document.getElementById("imageViewer").style.display="none"
+}
+
+</script>
+
+</body>
+</html>
