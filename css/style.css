@@ -314,4 +314,135 @@ width:150px;
 height:150px;
 }
 
+
+}
+
+/* ===== REVIEW SYSTEM ===== */
+
+.reviewSection{
+max-width:750px;
+margin:auto;
+}
+
+.reviewForm{
+margin-top:20px;
+}
+
+.reviewForm input,
+.reviewForm textarea{
+width:100%;
+padding:12px;
+margin-top:12px;
+background:#0f0f16;
+border:1px solid #222;
+color:#eee;
+border-radius:6px;
+font-size:14px;
+}
+
+.reviewForm textarea{
+min-height:120px;
+resize:vertical;
+}
+
+
+/* ===== STAR RATING ===== */
+
+.stars{
+display:flex;
+gap:8px;
+margin-top:14px;
+font-size:30px;
+cursor:pointer;
+user-select:none;
+}
+
+.star{
+color:#444;
+transition:0.25s;
+}
+
+.star:hover{
+transform:scale(1.2);
+color:#ffd166;
+}
+
+.star.active{
+color:#ffd700;
+text-shadow:0 0 12px rgba(255,215,0,0.8);
+animation:starPop 0.25s ease;
+}
+
+@keyframes starPop{
+0%{transform:scale(0.7)}
+70%{transform:scale(1.3)}
+100%{transform:scale(1)}
+}
+
+
+/* ===== REVIEW CARD ===== */
+
+.reviewCard{
+background:#14141c;
+padding:16px;
+border-radius:8px;
+border:1px solid #222;
+margin-top:16px;
+}
+
+.reviewUser{
+font-weight:bold;
+color:#fff;
+margin-bottom:6px;
+}
+
+.reviewStars{
+color:#ffd700;
+margin-bottom:8px;
+}
+
+.reviewComment{
+color:#cfcfe0;
+font-size:14px;
+}
+
+.reviewDelete{
+margin-top:8px;
+font-size:12px;
+color:#ff7070;
+cursor:pointer;
+}
+
+.reviewDelete:hover{
+color:#ff3b3b;
+}
+
+
+/* ===== AUTH BOX ===== */
+
+.authBox{
+max-width:420px;
+margin:auto;
+margin-bottom:20px;
+}
+
+.authTabs{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.authTabs button{
+flex:1;
+padding:10px;
+border:none;
+background:#1c1c28;
+color:#ccc;
+border-radius:6px;
+cursor:pointer;
+}
+
+.authTabs button.active{
+background:#5865F2;
+color:white;
 }
