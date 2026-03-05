@@ -158,7 +158,7 @@ const stars = "★".repeat(r.rating)+"☆".repeat(5-r.rating)
 
 let deleteBtn=""
 
-if(currentUser && currentUser.email==="admin@email.com"){
+if(currentUser && currentUser.email==="jjatinderpalsingh99155@gmai.com"){
 
 deleteBtn = `<div class="reviewDelete" onclick="deleteReview('${r.id}')">Delete</div>`
 
