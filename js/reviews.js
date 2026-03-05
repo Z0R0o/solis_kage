@@ -1,100 +1,115 @@
-const supabaseUrl = "https://oheqprjthbjmjqqkvsnn.supabase.co";
-const supabaseKey = "sb_publishable_nNCIAZkgDiw6grkQz7OYdw_cjlu_o5q";
+const supabase = window.supabase.createClient(
+"https://oheqprjthbjmjqqkvsnn.supabase.co",
+"sb_publishable_nNCIAZkgDiw6grkQz7OYdw_cjlu_o5q"
+)
 
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+let rating = 0
 
-let selectedRating = 0;
 
-const stars = document.querySelectorAll("#stars span");
+/* STAR SELECTION */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const stars = document.querySelectorAll(".star")
 
 stars.forEach(star => {
 
 star.addEventListener("click", () => {
 
-selectedRating = star.dataset.star;
+rating = star.dataset.value
 
-stars.forEach(s => s.classList.remove("active"));
+stars.forEach(s=>{
+s.classList.remove("active")
+})
 
-for(let i=0;i<selectedRating;i++){
-stars[i].classList.add("active");
+for(let i=0;i<rating;i++){
+stars[i].classList.add("active")
 }
 
-});
+})
 
-});
+})
 
-document.getElementById("postReview").addEventListener("click", async () => {
+loadReviews()
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-const comment = document.getElementById("comment").value;
+})
 
-if(!email || !password || !comment || selectedRating == 0){
-alert("Fill everything");
-return;
+
+
+/* SUBMIT REVIEW */
+
+async function submitReview(){
+
+const email = document.getElementById("email").value
+const comment = document.getElementById("comment").value
+const status = document.getElementById("status")
+
+if(!email || !comment || rating == 0){
+status.innerText="Fill all fields"
+return
 }
 
-let { data:userData } = await supabaseClient.auth.signInWithPassword({
-email: email,
-password: password
-});
+const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-if(!userData){
-await supabaseClient.auth.signUp({
-email: email,
-password: password
-});
+if(!emailCheck.test(email)){
+status.innerText="Invalid email"
+return
 }
 
-await supabaseClient
+const {error} = await supabase
 .from("reviews")
-.insert([
-{
-rating: selectedRating,
-comment: comment,
-email: email
+.insert([{email,rating,comment}])
+
+if(error){
+
+if(error.message.includes("duplicate")){
+status.innerText="You already reviewed"
+}else{
+status.innerText="Error posting review"
 }
-]);
 
-alert("Review posted");
+return
+}
 
-loadReviews();
+status.innerText="Review posted!"
 
-});
+loadReviews()
+
+}
+
+
+
+/* LOAD REVIEWS */
 
 async function loadReviews(){
 
-const { data } = await supabaseClient
+const {data} = await supabase
 .from("reviews")
 .select("*")
-.order("id",{ascending:false});
+.order("created_at",{ascending:false})
 
-const container = document.getElementById("reviewsContainer");
+const container = document.getElementById("reviews")
 
-container.innerHTML = "";
+container.innerHTML=""
 
-data.forEach(review => {
+data.forEach(r=>{
 
-const div = document.createElement("div");
+const stars = "★".repeat(r.rating) + "☆".repeat(5-r.rating)
 
-let stars = "";
+container.innerHTML += `
 
-for(let i=0;i<review.rating;i++){
-stars += "★";
-}
+<div class="galleryItem">
 
-div.className = "review-card";
+<p><b>${stars}</b></p>
 
-div.innerHTML = `
-<div class="review-stars">${stars}</div>
-<p>${review.comment}</p>
-<span class="review-email">${review.email}</span>
-`;
+<p>${r.comment}</p>
 
-container.appendChild(div);
+<p class="caption">${r.email}</p>
 
-});
+</div>
+
+`
+
+})
 
 }
-
-loadReviews();
