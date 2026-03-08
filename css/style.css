@@ -220,6 +220,20 @@ transform:scale(1.05);
 }
 
 
+/* ===== COMMISSIONS BUTTION ===== */
+
+.commissions{
+background:#1c1c28;
+color:white;
+border:1px solid #333;
+}
+
+.commissions:hover{
+background:#27273b;
+transform:scale(1.05);
+}
+
+
 /* ===== FULLSCREEN IMAGE VIEWER ===== */
 
 #imageViewer{
@@ -446,3 +460,4 @@ cursor:pointer;
 background:#5865F2;
 color:white;
 }
+
