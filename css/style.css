@@ -209,28 +209,30 @@ box-shadow:0 0 24px rgba(88,101,242,1);
 /* ===== SHOWCASE BUTTON ===== */
 
 .showcase{
-background:#1c1c28;
+background:#5865F2;
 color:white;
-border:1px solid #333;
+box-shadow:0 0 14px rgba(88,101,242,0.6);
 }
 
 .showcase:hover{
-background:#27273b;
-transform:scale(1.05);
+background:#4752c4;
+transform:scale(1.07);
+box-shadow:0 0 24px rgba(88,101,242,1);
 }
 
 
 /* ===== COMMISSIONS BUTTION ===== */
 
 .commissions{
-background:#1c1c28;
+background:#5865F2;
 color:white;
-border:1px solid #333;
+box-shadow:0 0 14px rgba(88,101,242,0.6);
 }
 
 .commissions:hover{
-background:#27273b;
-transform:scale(1.05);
+background:#4752c4;
+transform:scale(1.07);
+box-shadow:0 0 24px rgba(88,101,242,1);
 }
 
 
@@ -460,4 +462,5 @@ cursor:pointer;
 background:#5865F2;
 color:white;
 }
+
 
