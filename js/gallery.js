@@ -2,7 +2,8 @@ const showcaseImages = [
 "show1.png",
 "show2.png",
 "show3.png",
-"show4.png"
+"show4.png",
+"show5.png"
 ];
 
 const wipImages = [
